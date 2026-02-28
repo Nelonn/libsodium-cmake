@@ -36,7 +36,7 @@ include(FetchContent)
 # Update the commit to point to whatever libsodium-cmake-commit you want to target.
 FetchContent_Declare(Sodium
     GIT_REPOSITORY https://github.com/robinlinden/libsodium-cmake.git
-    GIT_TAG e5b985ad0dd235d8c4307ea3a385b45e76c74c6a # HEAD, last updated at 2025-04-13
+    GIT_TAG cfebfd3da486d5a86c644c8b47067e5411c7599c # HEAD, last updated at 2026-02-28
 )
 set(SODIUM_DISABLE_TESTS ON)
 FetchContent_MakeAvailable(Sodium)
