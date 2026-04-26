@@ -69,11 +69,7 @@ jobs:
         with:
           submodules: true
 
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.13"
-
-      - run: pip install cmake==4.0.3 ninja==1.11.1.4 --upgrade
+      - run: pipx install cmake==4.0.3 ninja==1.11.1.4 && cmake --version && ninja --version
 
       - run: echo "CC=${{ matrix.compiler }}" >> $GITHUB_ENV
         if: startsWith(matrix.os, 'ubuntu')
