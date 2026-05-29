@@ -30,7 +30,7 @@ jobs:
             os: ubuntu-22.04
             compiler: gcc
             generator: Ninja
-            cmake-args: "-DBUILD_SHARED_LIBS=ON"
+            cmake-args: "-DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Release"
           - name: gcc-minimal
             os: ubuntu-22.04
             compiler: gcc
@@ -40,7 +40,7 @@ jobs:
             os: ubuntu-22.04
             compiler: clang
             generator: Ninja
-            cmake-args: "-DBUILD_SHARED_LIBS=OFF"
+            cmake-args: "-DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release"
           - name: clang-dynamic
             os: ubuntu-24.04
             compiler: clang
@@ -63,7 +63,7 @@ jobs:
           - name: msvc-x64
             os: windows-2025
             generator: Visual Studio 17 2022
-            cmake-args: -A x64
+            cmake-args: -A x64 -DCMAKE_BUILD_TYPE=Release
           - name: clang-cl-x64
             os: windows-2022
             generator: Visual Studio 17 2022
