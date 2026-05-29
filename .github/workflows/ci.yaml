@@ -51,6 +51,11 @@ jobs:
             compiler: clang
             generator: Ninja
             cmake-args: "-DSODIUM_MINIMAL=ON"
+          - name: clang-static-aarch64
+            os: ubuntu-24.04-arm
+            compiler: clang
+            generator: Ninja
+            cmake-args: "-DBUILD_SHARED_LIBS=OFF"
           - name: msvc-x86
             os: windows-2022
             generator: Visual Studio 17 2022
