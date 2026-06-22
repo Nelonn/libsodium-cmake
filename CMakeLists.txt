@@ -309,6 +309,18 @@ if(CMAKE_C_COMPILER_ID STREQUAL "Clang" AND CMAKE_C_COMPILER_FRONTEND_VARIANT ST
     )
 endif()
 
+if(NOT MSVC AND CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|AMD64")
+    target_compile_options(${PROJECT_NAME} PRIVATE
+            -mssse3
+            -msse4.1
+            -msse4.2
+            -mavx
+            -mavx2
+            -mavx512f
+            -fno-tree-vectorize
+    )
+endif ()
+
 # Variables that need to be exported to version.h.in
 set(VERSION 1.0.20)
 set(SODIUM_LIBRARY_VERSION_MAJOR 26)
