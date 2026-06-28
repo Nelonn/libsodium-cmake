@@ -338,3 +338,18 @@ if(NOT SODIUM_DISABLE_TESTS)
     enable_testing()
     add_subdirectory(test)
 endif()
+
+add_library(sodium::sodium ALIAS sodium)
+
+install(TARGETS sodium
+        EXPORT sodiumTargets
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin)
+
+install(EXPORT sodiumTargets
+        FILE sodiumTargets.cmake
+        NAMESPACE sodium::
+        DESTINATION lib/cmake/sodium)
+
+install(DIRECTORY libsodium/src/libsodium/include/ DESTINATION include)
