@@ -348,9 +348,21 @@ install(TARGETS sodium
         LIBRARY DESTINATION lib
         RUNTIME DESTINATION bin)
 
+include(CMakePackageConfigHelpers)
+
+configure_package_config_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/sodiumConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/sodiumConfig.cmake"
+    INSTALL_DESTINATION lib/cmake/sodium
+)
+
 install(EXPORT sodiumTargets
         FILE sodiumTargets.cmake
         NAMESPACE sodium::
+        DESTINATION lib/cmake/sodium)
+
+install(FILES
+        "${CMAKE_CURRENT_BINARY_DIR}/sodiumConfig.cmake"
         DESTINATION lib/cmake/sodium)
 
 install(DIRECTORY libsodium/src/libsodium/include/ DESTINATION include)
